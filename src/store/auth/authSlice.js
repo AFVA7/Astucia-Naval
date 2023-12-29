@@ -8,6 +8,7 @@ export const authSlice = createSlice({
         email: null,
         displayName: null,
         photoURL: null,
+        birthdate: null,
         errorMessage: null,
     },
     reducers: {
@@ -17,6 +18,7 @@ export const authSlice = createSlice({
             state.email = payload.email;
             state.displayName = payload.displayName;
             state.photoURL = payload.photoURL;
+            state.birthdate = payload.birthdate;
             state.errorMessage = null;
         },
         logout: (state, { payload }) => {
@@ -25,6 +27,7 @@ export const authSlice = createSlice({
             state.email = null;
             state.displayName = null;
             state.photoURL = null;
+            state.birthdate = null;
             state.errorMessage = payload?.errorMessage;
         },
         checkingCredentials: (state) => {
@@ -34,6 +37,7 @@ export const authSlice = createSlice({
             state.displayName = payload.displayName;
             state.email = payload.email;
             state.photoURL = payload.photoURL;
+            state.birthdate = payload.birthdate;
         },
         setPhotoURL: (state, { payload }) => {
             state.photoURL = payload;

@@ -4,7 +4,8 @@ import { AuthLayout } from '../layout/AuthLayout'
 import { useForm } from '../../hooks';
 import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startCreatingUserWithEmailAndPassword, startLoadingFile } from '../../store/auth';
+import { startCreatingUserWithEmailAndPassword } from '../../store/auth';
+
 
 
 const formData = {
@@ -12,6 +13,7 @@ const formData = {
   password: '123456',
   displayName: 'Andres',
   photoURL: '',
+  birthdate: '',
 }
 
 const formValidations = {
@@ -25,6 +27,8 @@ export const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [birthdate, setBirthdate] = useState('');
+
 
   const { status, errorMessage } = useSelector(state => state.auth);
   const isCheckingAuthentication = useMemo(() => status === 'cheking', [status]);
@@ -37,7 +41,7 @@ export const RegisterPage = () => {
     e.preventDefault();
     setFormSubmitted(true);
     if (!isFormValid) return;
-    dispatch(startCreatingUserWithEmailAndPassword(formState));
+    dispatch(startCreatingUserWithEmailAndPassword({...formState, birthdate}));
   }
   return (
     <AuthLayout title='Crear Cuenta'>
@@ -80,6 +84,20 @@ export const RegisterPage = () => {
               onChange={onInputChange}
               error={!!passwordValid && formSubmitted}
               helperText={passwordValid}
+            />
+          </Grid>
+
+          <Grid item xs={12} sx={{ mt: 2 }}>
+            <TextField
+              label="Fecha de Nacimiento"
+              type="date"
+              fullWidth
+              name='birthdate'
+              value={birthdate}
+              onChange={({target}) => setBirthdate(target.value)}
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
           </Grid>
 

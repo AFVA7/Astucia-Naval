@@ -1,5 +1,4 @@
-// ProfileForm.js
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Grid, TextField, Typography, Alert } from "@mui/material";
 import { updateProfile } from '../../store/auth';
@@ -7,13 +6,20 @@ import { fileUpload } from '../../helpers';
 
 export const ProfileForm = () => {
   const dispatch = useDispatch();
-  const { displayName: currentDisplayName, email: currentEmail, photoURL: currentPhotoURL, errorMessage } = useSelector(state => state.auth);
+  const { displayName: currentDisplayName, email: currentEmail, photoURL: currentPhotoURL, errorMessage, birthdate: currentBirthdate } = useSelector(state => state.auth);
 
   const [formState, setFormState] = useState({
     displayName: currentDisplayName || '',
     email: currentEmail || '',
     photoURL: currentPhotoURL || '',
+    birthdate: currentBirthdate || '',
   });
+
+  const [birthdate, setBirthdate] = useState('');
+
+  useEffect(() => {
+    setBirthdate(currentBirthdate);
+  }, [currentBirthdate]);
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -27,7 +33,7 @@ export const ProfileForm = () => {
     setFormSubmitted(true);
     if (!isFormValid) return;
     // Dispatch de la acción de actualización del perfil
-    dispatch(updateProfile(formState));
+    dispatch(updateProfile({ ...formState, birthdate }));
     // Restablecer el estado del formulario si es necesario
   };
 
@@ -47,7 +53,7 @@ export const ProfileForm = () => {
     }
   };
 
-  const onInputChange = ({target}) => {
+  const onInputChange = ({ target }) => {
     const { name, value } = target;
     setFormState((prevFormState) => ({
       ...prevFormState,
@@ -85,6 +91,21 @@ export const ProfileForm = () => {
             helperText={formSubmitted && formState.email.trim() === '' && 'El correo debe de tener una @'}
           />
         </Grid>
+
+        <Grid item xs={12} sx={{ mt: 2 }}>
+          <TextField
+            label="Fecha de Nacimiento"
+            type="date"
+            fullWidth
+            name='birthdate'
+            value={birthdate}
+            onChange={({ target }) => setBirthdate(target.value)}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </Grid>
+
 
         <Grid item xs={12} sx={{ mt: 2 }}>
           <input

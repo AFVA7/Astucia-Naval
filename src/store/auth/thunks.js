@@ -15,12 +15,12 @@ export const startGoogleSingIn = () => {
     }
 }
 
-export const startCreatingUserWithEmailAndPassword = ({ email, password, displayName, photoURL }) => {
+export const startCreatingUserWithEmailAndPassword = ({ email, password, displayName, photoURL, birthdate }) => {
     return async (dispatch) => {
         dispatch(checkingCredentials());
-        const { ok, uid, errorMessage } = await registerUserWithEmailPassword({ email, password, displayName, photoURL });
+        const { ok, uid, errorMessage } = await registerUserWithEmailPassword({ email, password, displayName, photoURL, birthdate });
         if (!ok) return dispatch(logout({ errorMessage }));
-        dispatch(login({ uid, photoURL, email, displayName }));
+        dispatch(login({ uid, photoURL, email, displayName, birthdate }));
     }
 }
 
