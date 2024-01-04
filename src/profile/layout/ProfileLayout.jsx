@@ -1,5 +1,5 @@
 import { Box, Toolbar, Typography } from "@mui/material";
-import { Navbar, SideBar } from "../../mapa/components";
+import { Navbar, SideBar } from "../../tablero/components";
 
 const drawerWidth = 240;
 

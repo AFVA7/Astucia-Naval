@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { MapaPage } from "../pages/MapaPage"
+import { TableroPage } from "../pages/TableroPage"
 import { ProfileRoutes } from "../../profile/routes/ProfileRoutes"
 
-export const MapaRoutes = () => {
+export const TableroRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<MapaPage />} />
+            <Route path="/" element={<TableroPage />} />
             <Route path="profile/*" element={<ProfileRoutes />} />
             <Route path="/*" element={<Navigate to='/' />} />
 

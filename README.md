@@ -1,11 +1,11 @@
-## MapasApp
+## TablerosApp
 
 ### Descripción
-MapasApp es una aplicación web que proporciona a los usuarios información visual sobre los barrios de Medellín, Colombia, a través de un mapa interactivo. Los usuarios pueden registrarse para acceder o iniciar sesión mediante Google. Además, la aplicación ofrece la posibilidad de actualizar el perfil, incluida la opción de cambiar la foto de perfil.
+TablerosApp es una aplicación web que proporciona a los usuarios información visual sobre los barrios de Medellín, Colombia, a través de un Tablero interactivo. Los usuarios pueden registrarse para acceder o iniciar sesión mediante Google. Además, la aplicación ofrece la posibilidad de actualizar el perfil, incluida la opción de cambiar la foto de perfil.
 
-### Guía de Usuario - MapasApp
+### Guía de Usuario - TablerosApp
 
-¡Bienvenido a MapasApp! Aquí tienes una breve descripción de las principales características de la aplicación:
+¡Bienvenido a TablerosApp! Aquí tienes una breve descripción de las principales características de la aplicación:
 
 ### 1. Inicio de Sesión
 
@@ -21,11 +21,11 @@ Puedes acceder utilizando tu cuenta de Google o crear una cuenta propia. Si elig
 
 En esta vista, puedes crear tu cuenta proporcionando tu nombre completo, correo y contraseña. Además, tienes la opción de cargar una foto para tu perfil de usuario. Ten en cuenta que puede tomar unos segundos cargar la foto en Cloudinary. Después de crear la cuenta, serás autenticado automáticamente. Desde aquí, también puedes regresar a la vista de inicio de sesión.
 
-### 3. Vista del Mapa
+### 3. Vista del Tablero
 
-Una vez autenticado, serás dirigido a la vista del mapa, que muestra los polígonos de los barrios de Medellín.
+Una vez autenticado, serás dirigido a la vista del Tablero, que muestra los polígonos de los barrios de Medellín.
 
-![Mapa](public/mapas.png)
+![Tablero](public/Tableros.png)
 
 ### 4. Navegación
 
@@ -41,7 +41,7 @@ Bajo la foto en el Sidebar, encontrarás la opción de "Editar Perfil". Al hacer
 
 En este módulo, puedes editar tu perfil, incluso subir una nueva foto. Recuerda esperar unos segundos para que la foto se cargue en Cloudinary antes de guardar los cambios. Una vez que presionas "Guardar Cambios", verás cómo la información se actualiza instantáneamente.
 
-¡Explora y disfruta de MapasApp para descubrir más funcionalidades! Si tienes alguna pregunta o encuentras algún problema, no dudes en contactarnos. ¡Gracias por usar MapasApp!
+¡Explora y disfruta de TablerosApp para descubrir más funcionalidades! Si tienes alguna pregunta o encuentras algún problema, no dudes en contactarnos. ¡Gracias por usar TablerosApp!
 
 ### Instalación y Ejecución
 
@@ -52,7 +52,7 @@ En este módulo, puedes editar tu perfil, incluso subir una nueva foto. Recuerda
 
 2. Navega al directorio del proyecto:
    ```bash
-   cd mapasApp
+   cd TablerosApp
    ```
 
 3. Instala las dependencias con Yarn:
@@ -91,7 +91,7 @@ En este módulo, puedes editar tu perfil, incluso subir una nueva foto. Recuerda
 - **eslint-plugin-react-refresh**: ^0.4.5
 - **vite**: ^5.0.8
 
-### Uso del Mapa
+### Uso del Tablero
 
 La aplicación utiliza Leaflet para mostrar los polígonos de los barrios de Medellín. Se accede a la información a través de la API proporcionada en el siguiente enlace:
 
@@ -111,7 +111,7 @@ let defaultIcon = L.icon({
     popupAnchor: [-3, -76]
 })
 
-export const Mapa = () => {
+export const Tablero = () => {
     const [geojsonData, setGeojsonData] = useState(null);
 
     useEffect(() => {
@@ -134,7 +134,7 @@ export const Mapa = () => {
                 <MapContainer
                     center={[6.245220909754232, -75.57881294350398]}
                     zoom={11}
-                    className='mapa'
+                    className='Tablero'
                 >
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -158,6 +158,6 @@ export const Mapa = () => {
 
 ### Contribuciones
 
-Las contribuciones son bienvenidas. Si encuentras algún problema o tienes mejoras que sugerir, por favor, abre un [issue](https://github.com/tu-usuario/mapasApp/issues) o envía una [pull request](https://github.com/tu-usuario/mapasApp/pulls).
+Las contribuciones son bienvenidas. Si encuentras algún problema o tienes mejoras que sugerir, por favor, abre un [issue](https://github.com/tu-usuario/TablerosApp/issues) o envía una [pull request](https://github.com/tu-usuario/TablerosApp/pulls).
 
-¡Gracias por usar MapasApp!
+¡Gracias por usar TablerosApp!

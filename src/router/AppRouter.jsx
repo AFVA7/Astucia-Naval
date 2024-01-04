@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { AuthRoutes } from "../auth/routes/AuthRoutes"
 import { CheckingAuth } from "../ui/"
-import { MapaRoutes } from "../mapa/routes/MapaRoutes"
+import { TableroRoutes } from "../tablero/routes/TableroRoutes"
 import { useCheckAuth } from "../hooks"
 
 export const AppRouter = () => {
@@ -15,7 +15,7 @@ export const AppRouter = () => {
     <Routes>
       {
         (status === 'authenticated')
-          ? <Route path="/*" element={<MapaRoutes />} />
+          ? <Route path="/*" element={<TableroRoutes />} />
           : <Route path="/auth/*" element={<AuthRoutes />} />
       }
       <Route path="/*" element={<Navigate to='/auth/login' />} />

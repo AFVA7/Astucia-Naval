@@ -3,7 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { SideBar } from "../components";
 
 const drawerWidth = 240;
-export const MapaLayout = ({ children }) => {
+export const TableroLayout = ({ children }) => {
     return (
         <Box sx={{ display: 'flex' }} className="animate__animated animate__fadeIn animated__faster">
             <Navbar drawerWidth={drawerWidth} />

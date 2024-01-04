@@ -1,7 +1,61 @@
 .box-shadow{
   box-shadow: 0 5px 5px rgba(0,0,0,0.2);
 }
-.mapa{
+.board{
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
+
+.board button:hover {
+  background: #eee;
+  color: #222;
+}
+
+.board .column-names,
+.board .game {
+  display: grid;
+  grid-template-columns: auto repeat(10, 1fr); /* Cambio en grid-template-columns para incluir una columna auto para las filas */
+  gap: 10px;
+}
+
+.column-names {
+  grid-template-rows: auto; /* Ajuste para el tamaño automático de las filas en column-names */
+  align-items: center;
+}
+
+.column-name,
+.row-name {
+  width: 100px;
+  height: 30px;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.row-name {
+  height: 100px;
+  width: 30px;
+  /* Ajuste para orientación vertical */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #eee;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 48px;
+}
+
+/* Estilo para la esquina superior izquierda */
+.empty-cell {
+  width: 30px;
+  height: 30px;
+}
+

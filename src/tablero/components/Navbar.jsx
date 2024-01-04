@@ -27,7 +27,7 @@ export const Navbar = ({ drawerWidth = 240 }) => {
                     <MenuOutlined />
                 </IconButton>
                 <Grid container direction='row' justifyContent="space-between" alignItems='center'>
-                    <Typography variant="h6" noWrap component='div'>MapaApp</Typography>
+                    <Typography variant="h6" noWrap component='div'>TableroApp</Typography>
 
                     <IconButton
                         color="error"
