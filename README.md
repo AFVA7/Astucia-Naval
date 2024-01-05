@@ -23,7 +23,7 @@ El sistema cuenta con un contador de cuántos barcos se han destruido. El juego 
 ### Botones
 
 - **Ejecutar:** Este botón ejecuta el comando del input, revelando el resultado en la matriz.
-- **Reiniciar Juego:** Este botón limpia la matriz y vuelve a generar las posiciones de los barcos, permitiendo reiniciar el juego.
+- **Limpiar:** Este botón limpia la matriz y vuelve a generar las posiciones de los barcos, permitiendo reiniciar el juego.
 
 ### Instrucciones de Uso
 
