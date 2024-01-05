@@ -19,13 +19,17 @@ export const useForm = (initialForm = {}, formValidatios = {}) => {
     }, [formValidation])
 
 
-    const onInputChange = ({ target }) => {
+    const onInputChange = ({ target }, setInputCommand) => {
         const { name, value } = target;
         setFormState({
             ...formState,
             [name]: value
         });
-    }
+    
+        if (setInputCommand) {
+            setInputCommand(value.toUpperCase());
+        }
+    };
 
     const onFileInputChange = async ({ target }) => {
         if (!target.files.length) return;

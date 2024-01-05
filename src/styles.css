@@ -32,6 +32,7 @@
   display: grid;
   place-items: center;
   font-size: 16px;
+  color: #eee;
 }
 
 .row-name {
@@ -43,6 +44,7 @@
 }
 
 .square {
+  color: #eee;
   width: 100px;
   height: 100px;
   border: 2px solid #eee;
@@ -58,4 +60,3 @@
   width: 30px;
   height: 30px;
 }
-
