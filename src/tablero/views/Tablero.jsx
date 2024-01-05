@@ -8,6 +8,7 @@ const SIZE_OF_SHIP = 4;
 export const Tablero = () => {
   const [board, setBoard] = useState([]);
   const [ships, setShips] = useState([]);
+  const [destroyedShips, setDestroyedShips] = useState(0); // Nuevo estado
   const [inputCommand, setInputCommand] = useState('');
   const [counter, setCounter] = useState(0);
 
@@ -69,7 +70,6 @@ export const Tablero = () => {
       generatedShips.push(newShip);
     }
 
-
     setShips(generatedShips);
     const updatedBoard = initialBoard.map((row) => row.slice());
 
@@ -85,9 +85,9 @@ export const Tablero = () => {
     });
 
     setBoard(updatedBoard);
+    setDestroyedShips(0); // Reiniciar el contador de barcos destruidos
+    setCounter(0); // Reiniciar el contador general
   };
-
-
 
   const getRandomPosition = () => {
     let row, col;
@@ -124,18 +124,22 @@ export const Tablero = () => {
       );
 
       if (hitShip) {
-        hitShip.forEach((position) => {
-          updatedBoard[position.row.charCodeAt(0) - 65][position.col - 1] = 'O';
-        });
-
-        setCounter((prevCounter) => prevCounter + 1);
-
-        const allShipsDestroyed = ships.every((ship) =>
-          ship.every(
-            (position) =>
-              updatedBoard[position.row.charCodeAt(0) - 65][position.col - 1] === 'O'
-          )
+        const isShipAlreadyDestroyed = hitShip.every(
+          (position) =>
+            updatedBoard[position.row.charCodeAt(0) - 65][position.col - 1] === 'O'
         );
+
+        if (!isShipAlreadyDestroyed) {
+          hitShip.forEach((position) => {
+            updatedBoard[position.row.charCodeAt(0) - 65][position.col - 1] = 'O';
+          });
+
+          setDestroyedShips((prevDestroyedShips) => prevDestroyedShips + 1);
+          setCounter((prevCounter) => prevCounter + 1);
+        }
+
+        const allShipsDestroyed = (destroyedShips + 1) === 5;
+        console.log(destroyedShips);
 
         if (allShipsDestroyed) {
           alert('¡Juego terminado! Has destruido todos los barcos');

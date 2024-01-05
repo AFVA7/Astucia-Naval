@@ -1,8 +1,15 @@
+
 ## TablerosApp
+
+![Presentacion](public/presentacion.png)
 
 ### Descripción
 
 TablerosApp es una aplicación web que recrea una versión simplificada del popular juego "Astucia Naval". La aplicación presenta una vista que contiene una matriz 10x10 con nombres de columnas (números del 1 al 10) y filas (letras de la A a la J). El objetivo del juego es destruir los barcos ubicados en la matriz ingresando comandos de ataque.
+
+### Autenticación y Perfil de Usuario
+
+Para iniciar a jugar, es necesario autenticarse. Puedes hacerlo con tu cuenta de Gmail o crear una cuenta nueva con foto de perfil. Una vez autenticado, también tendrás la opción de editar tu perfil.
 
 ### Juego "Astucia Naval"
 
@@ -15,6 +22,10 @@ Para comenzar a jugar, hay un cajón de texto (Input) donde se pueden ingresar c
 - Si la posición ingresada coincide con una de las posiciones de un barco, se muestra la letra "O" en la casilla.
 - Si la posición ingresada no coincide con un barco, se muestra la letra "X".
 - Si la posición ya tiene un valor, se conserva ese valor y se ignora el nuevo comando.
+
+#### Ejemplo con 3 barcos destruidos y 2 intentos fallidos
+
+![Jugando](public/jugando.png)
 
 ### Contador de Barcos Destruidos
 
@@ -29,7 +40,7 @@ El sistema cuenta con un contador de cuántos barcos se han destruido. El juego 
 
 1. **Clona el repositorio:**
    ```bash
-   git clone https://tu-repositorio.git
+   git clone https://github.com/AFVA7/Astucia-Naval.git
    ```
 
 2. **Navega al directorio del proyecto:**
@@ -62,6 +73,7 @@ El sistema cuenta con un contador de cuántos barcos se han destruido. El juego 
 
 ### Contribuciones
 
-Las contribuciones son bienvenidas. Si encuentras algún problema o tienes mejoras que sugerir, por favor, abre un [issue](https://github.com/tu-usuario/tablerosApp/issues) o envía una [pull request](https://github.com/tu-usuario/tablerosApp/pulls).
+Las contribuciones son bienvenidas. Si encuentras algún problema o tienes mejoras que sugerir, por favor, abre un [issue](https://github.com/AFVA7/Astucia-Naval/issues) o envía una [pull request](https://github.com/AFVA7/Astucia-Naval/pulls).
 
 ¡Gracias por jugar a TablerosApp!
+

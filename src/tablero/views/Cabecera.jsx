@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useForm } from "../../hooks";
 
 const formData = {
-    displayComand: 'A1',
+    displayComand: 'A',
 }
 
 const formValidations = {
